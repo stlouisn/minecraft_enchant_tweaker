@@ -20,6 +20,7 @@
     "server.tweak.MultishotPiercingMixin",
     "server.tweak.NoSoulSpeedBacklashMixin",
     "server.tweak.NoThornsBacklashMixin",
+    "server.tweak.SwordEfficientToolsMixin",
     "server.tweak.TridentWeaponsMixin"
   ],
   "client": [],

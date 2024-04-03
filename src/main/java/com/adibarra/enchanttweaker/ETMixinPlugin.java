@@ -1,18 +1,15 @@
 package com.adibarra.enchanttweaker;
 
 import com.adibarra.utils.ADConfig;
-import net.fabricmc.loader.api.FabricLoader;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import org.objectweb.asm.tree.ClassNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.function.BooleanSupplier;
 
 public final class ETMixinPlugin implements IMixinConfigPlugin {
 
@@ -35,6 +32,7 @@ public final class ETMixinPlugin implements IMixinConfigPlugin {
         KEYS.put("MultishotPiercingMixin",    "multishot_piercing");
         KEYS.put("NoSoulSpeedBacklashMixin",  "no_soul_speed_backlash");
         KEYS.put("NoThornsBacklashMixin",     "no_thorns_backlash");
+        KEYS.put("SwordEfficientToolsMixin",  "sword_efficient_tools");
         KEYS.put("TridentWeaponsMixin",       "trident_weapons");
 
         KEYS.put("DamageEnchantMixin",        "capmod_enabled");
