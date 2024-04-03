@@ -12,7 +12,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  * @environment Server
  */
 @Mixin(value={
-    MultishotEnchantment.class, PiercingEnchantment.class
+    MultishotEnchantment.class,
+    PiercingEnchantment.class
 })
 public abstract class MultishotPiercingMixin extends Enchantment {
 

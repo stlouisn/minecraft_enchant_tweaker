@@ -12,8 +12,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 /**
- * @description Modify enchantment level cap.
- * @note LuckEnchantment is used by: Looting, Fortune, and Luck of the Sea
+ * @description Modify enchantment level cap. LuckEnchantment is used by: Looting, Fortune, and Luck of the Sea
  * @environment Server
  */
 @Mixin(value=LuckEnchantment.class)
@@ -24,13 +23,11 @@ public abstract class LuckEnchantMixin extends Enchantment {
         super(weight, type, slotTypes);
     }
 
-    // VERSION CHANGES:
-    // 1.16+: Registry
-    // 1.19.3+: Registries
     @ModifyReturnValue(
         method="getMaxLevel()I",
         at=@At("RETURN"))
     private int enchanttweaker$luckEnchant$modifyMaxLevel(int orig) {
+
         if (Registries.ENCHANTMENT.getKey(this).isEmpty()) return orig;
 
         String key = Registries.ENCHANTMENT.getKey(this).get().getValue().getPath();

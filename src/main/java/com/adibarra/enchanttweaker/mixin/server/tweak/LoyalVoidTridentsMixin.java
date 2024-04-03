@@ -26,7 +26,6 @@ public abstract class LoyalVoidTridentsMixin extends ProjectileEntity {
     private boolean dealtDamage;
 
     // VERSION CHANGES:
-    // 1.16+: ProjectileEntity
     // 1.19.4+: PersistentProjectileEntity
     // 1.20.3+: ProjectileEntity
     @SuppressWarnings("unused")

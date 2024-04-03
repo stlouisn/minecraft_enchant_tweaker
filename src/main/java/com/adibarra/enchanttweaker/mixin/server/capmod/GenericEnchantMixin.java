@@ -16,12 +16,24 @@ import java.util.Map;
  * @environment Server
  */
 @Mixin(value={
-    DepthStriderEnchantment.class, EfficiencyEnchantment.class,  FireAspectEnchantment.class,
-    FrostWalkerEnchantment.class,  ImpalingEnchantment.class,    KnockbackEnchantment.class,
-    LoyaltyEnchantment.class,      LureEnchantment.class,        PiercingEnchantment.class,
-    PowerEnchantment.class,        PunchEnchantment.class,       QuickChargeEnchantment.class,
-    RespirationEnchantment.class,  RiptideEnchantment.class,     SoulSpeedEnchantment.class,
-    SweepingEnchantment.class,     SwiftSneakEnchantment.class,  ThornsEnchantment.class,
+    DepthStriderEnchantment.class,
+    EfficiencyEnchantment.class,
+    FireAspectEnchantment.class,
+    FrostWalkerEnchantment.class,
+    ImpalingEnchantment.class,
+    KnockbackEnchantment.class,
+    LoyaltyEnchantment.class,
+    LureEnchantment.class,
+    PiercingEnchantment.class,
+    PowerEnchantment.class,
+    PunchEnchantment.class,
+    QuickChargeEnchantment.class,
+    RespirationEnchantment.class,
+    RiptideEnchantment.class,
+    SoulSpeedEnchantment.class,
+    SweepingEnchantment.class,
+    SwiftSneakEnchantment.class,
+    ThornsEnchantment.class,
     UnbreakingEnchantment.class
 })
 public abstract class GenericEnchantMixin {

@@ -12,9 +12,15 @@ import org.spongepowered.asm.mixin.Mixin;
  * @environment Server
  */
 @Mixin(value={
-    AquaAffinityEnchantment.class, BindingCurseEnchantment.class, ChannelingEnchantment.class,
-    FlameEnchantment.class,        InfinityEnchantment.class,     MendingEnchantment.class,
-    MultishotEnchantment.class,    SilkTouchEnchantment.class,    VanishingCurseEnchantment.class
+    AquaAffinityEnchantment.class,
+    BindingCurseEnchantment.class,
+    ChannelingEnchantment.class,
+    FlameEnchantment.class,
+    InfinityEnchantment.class,
+    MendingEnchantment.class,
+    MultishotEnchantment.class,
+    SilkTouchEnchantment.class,
+    VanishingCurseEnchantment.class
 })
 public abstract class SpecialEnchantMixin extends Enchantment {
 
@@ -23,9 +29,6 @@ public abstract class SpecialEnchantMixin extends Enchantment {
         super(weight, target, slotTypes);
     }
 
-    // VERSION CHANGES:
-    // 1.16+: Registry
-    // 1.19.3+: Registries
     @Override
     public int getMaxLevel() {
         int orig = super.getMaxLevel();

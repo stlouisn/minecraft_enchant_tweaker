@@ -21,21 +21,8 @@ public final class ETMixinPlugin implements IMixinConfigPlugin {
     private static ADConfig CONFIG;
     private static final Logger LOGGER = LoggerFactory.getLogger(EnchantTweaker.MOD_NAME);
     private static final Map<String, String> KEYS = new HashMap<>();
-    private static final Map<String, CompatEntry> COMPAT = new HashMap<>();
-
-    private record CompatEntry(boolean shouldApply, String reason, BooleanSupplier condition, Runnable callback) { }
 
     static {
-        KEYS.put("CheapNamesMixin",           "cheap_names");
-        KEYS.put("NotTooExpensiveMixin",      "not_too_expensive");
-        KEYS.put("PriorWorkCheaperMixin",     "prior_work_cheaper");
-        KEYS.put("PriorWorkFreeMixin",        "prior_work_free");
-        KEYS.put("SturdyAnvilsMixin",         "sturdy_anvils");
-
-        KEYS.put("MoreBindingMixin",          "more_binding");
-        KEYS.put("MoreChannelingMixin",       "more_channeling");
-        KEYS.put("MoreFlameMixin",            "more_flame");
-        KEYS.put("MoreInfinityMixin",         "more_infinity");
         KEYS.put("MoreMendingMixin",          "more_mending");
         KEYS.put("MoreMultishotMixin",        "more_multishot");
 
@@ -43,14 +30,11 @@ public final class ETMixinPlugin implements IMixinConfigPlugin {
         KEYS.put("AxeWeaponsMixin",           "axe_weapons");
         KEYS.put("BetterMendingMixin",        "better_mending");
         KEYS.put("BowInfinityFixMixin",       "bow_infinity_fix");
-        KEYS.put("GodArmorMixin",             "god_armor");
-        KEYS.put("GodWeaponsMixin",           "god_weapons");
         KEYS.put("InfiniteMendingMixin",      "infinite_mending");
         KEYS.put("LoyalVoidTridentsMixin",    "loyal_void_tridents");
         KEYS.put("MultishotPiercingMixin",    "multishot_piercing");
         KEYS.put("NoSoulSpeedBacklashMixin",  "no_soul_speed_backlash");
         KEYS.put("NoThornsBacklashMixin",     "no_thorns_backlash");
-        KEYS.put("ShinyNameMixin",            "shiny_name");
         KEYS.put("TridentWeaponsMixin",       "trident_weapons");
 
         KEYS.put("DamageEnchantMixin",        "capmod_enabled");
@@ -59,32 +43,6 @@ public final class ETMixinPlugin implements IMixinConfigPlugin {
         KEYS.put("ProtectionEnchantMixin",    "capmod_enabled");
         KEYS.put("SpecialEnchantMixin",       "capmod_enabled");
 
-        COMPAT.put(
-            "AxesNotToolsMixin",
-            new CompatEntry(
-                false,
-                "Mod 'AxesAreWeapons' detected",
-                () -> FabricLoader.getInstance().isModLoaded("axesareweapons"),
-                () -> CONFIG.set(getMixinKey("AxesNotToolsMixin"), Boolean.FALSE.toString()))
-        );
-
-        COMPAT.put(
-            "NotTooExpensiveMixin",
-            new CompatEntry(
-                false,
-                "Mod 'Fabrication' detected",
-                () -> FabricLoader.getInstance().isModLoaded("fabrication"),
-                () -> CONFIG.set(getMixinKey("NotTooExpensiveMixin"), Boolean.FALSE.toString()))
-        );
-
-        COMPAT.put(
-            "BowInfinityFixMixin",
-            new CompatEntry(
-                false,
-                "MoreInfinityMixin is enabled and takes precedence",
-                () -> getMixinConfig("MoreInfinityMixin"),
-                () -> CONFIG.set(getMixinKey("BowInfinityFixMixin"), Boolean.FALSE.toString()))
-        );
     }
 
     @Override
@@ -100,17 +58,6 @@ public final class ETMixinPlugin implements IMixinConfigPlugin {
         if (!MOD_ENABLED) return false;
 
         String mixinName = mixinClassName.substring(mixinClassName.lastIndexOf('.') + 1);
-        CompatEntry compatEntry = COMPAT.get(mixinName);
-
-        // if there is a compat entry, and it activates, override config
-        if (compatEntry != null && compatEntry.condition().getAsBoolean()) {
-            String state = compatEntry.shouldApply() ? "enabled" : "disabled";
-            LOGGER.info(EnchantTweaker.PREFIX + "[COMPAT] {} {}. Reason: {}", mixinName, state, compatEntry.reason());
-            compatEntry.callback().run();
-            return compatEntry.shouldApply();
-        }
-
-        // assume no compatibility entries, use config
         return getMixinConfig(mixinName);
     }
 

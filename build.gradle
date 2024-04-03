@@ -4,21 +4,7 @@ plugins {
     id "com.modrinth.minotaur" version "2.+"
 }
 
-// Name jar with supported MC versions
-String supportedVersions = project.minecraft_version
-List<String> supportedVersionsArray = [project.minecraft_version]
-if (project.minecraft_version == "1.19.2") {
-    supportedVersions = "1.19-1.19.2"
-    supportedVersionsArray = ["1.19", "1.19.1", "1.19.2"]
-} else if (project.minecraft_version == "1.20.1") {
-    supportedVersions = "1.20-1.20.1"
-    supportedVersionsArray = ["1.20", "1.20.1"]
-} else if (project.minecraft_version == "1.20.3") {
-    supportedVersions = "1.20.3-1.20.4"
-    supportedVersionsArray = ["1.20.3", "1.20.4"]
-}
-
-version = "${project.mod_version}+mc${supportedVersions}"
+version = "${project.mod_version}"
 group = project.maven_group
 
 base {
@@ -34,7 +20,6 @@ repositories {
 }
 
 dependencies {
-	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
@@ -55,18 +40,13 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 java {
-	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-	// if it is present.
-	// If you remove this line, sources will not be generated.
 	withSourcesJar()
-
 	sourceCompatibility = JavaVersion.VERSION_17
 	targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {
 	from "LICENSE"
-	exclude "**/*.pdn"
 }
 
 // configure the maven publication
@@ -84,21 +64,4 @@ publishing {
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
 	}
-}
-
-modrinth {
-    debugMode = true
-    token = System.getenv("MODRINTH_TOKEN") ?: ""
-    projectId = "e4Vpm1dD"
-    versionName = "Enchant Tweaker ${project.mod_version}+mc${supportedVersions}"
-    versionNumber = "${project.mod_version}+mc${supportedVersions}"
-    gameVersions = supportedVersionsArray
-    changelog = new File("VERSION_CHANGES.md").text
-    versionType = "release"
-    uploadFile = remapJar
-    additionalFiles = [sourcesJar]
-    loaders = ["fabric", "quilt"]
-    dependencies {
-        required.project "fabric-api"
-    }
 }

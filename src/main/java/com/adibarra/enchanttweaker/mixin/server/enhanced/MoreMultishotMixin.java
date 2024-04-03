@@ -48,9 +48,10 @@ public abstract class MoreMultishotMixin {
         method="loadProjectiles(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;)Z",
         constant=@Constant(intValue=3))
     private static int enchanttweaker$moreMultishot$modifyNumProjectiles(int orig) {
-        return multishotLevel * 2 + 1;
+        return multishotLevel + 1;
     }
 
+    @SuppressWarnings("UnresolvedLocalCapture")
     @Inject(
         method="shootAll(Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/util/Hand;Lnet/minecraft/item/ItemStack;FF)V",
         at=@At(

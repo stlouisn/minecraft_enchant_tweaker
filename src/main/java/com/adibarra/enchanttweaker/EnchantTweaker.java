@@ -14,8 +14,6 @@ public class EnchantTweaker implements ModInitializer {
     @Override
     public void onInitialize() {
         if (ETMixinPlugin.getConfig().getOrDefault("mod_enabled", false)) {
-            ETCommands.registerCommands();
-            ETCommands.registerEventListeners();
             LOGGER.info(PREFIX + "Ready to go! Applied {} Mixins.", ETMixinPlugin.getNumMixins());
         }
     }
