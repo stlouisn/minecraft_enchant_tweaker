@@ -20,26 +20,28 @@ public final class ETMixinPlugin implements IMixinConfigPlugin {
     private static final Map<String, String> KEYS = new HashMap<>();
 
     static {
-        KEYS.put("MoreMendingMixin",          "more_mending");
-        KEYS.put("MoreMultishotMixin",        "more_multishot");
+        KEYS.put("MoreMendingMixin",           "more_mending");
+        KEYS.put("MoreMultishotMixin",         "more_multishot");
 
-        KEYS.put("AxesNotToolsMixin",         "axes_not_tools");
-        KEYS.put("AxeWeaponsMixin",           "axe_weapons");
-        KEYS.put("BetterMendingMixin",        "better_mending");
-        KEYS.put("BowInfinityFixMixin",       "bow_infinity_fix");
-        KEYS.put("InfiniteMendingMixin",      "infinite_mending");
-        KEYS.put("LoyalVoidTridentsMixin",    "loyal_void_tridents");
-        KEYS.put("MultishotPiercingMixin",    "multishot_piercing");
-        KEYS.put("NoSoulSpeedBacklashMixin",  "no_soul_speed_backlash");
-        KEYS.put("NoThornsBacklashMixin",     "no_thorns_backlash");
-        KEYS.put("SwordEfficientToolsMixin",  "sword_efficient_tools");
-        KEYS.put("TridentWeaponsMixin",       "trident_weapons");
+        KEYS.put("AxesNotToolsMixin",          "axes_not_tools");
+        KEYS.put("AxeWeaponsMixin",            "axe_weapons");
+        KEYS.put("AxeWeaponsHelperMixin",      "axe_weapons");
+        KEYS.put("BetterMendingMixin",         "better_mending");
+        KEYS.put("BowInfinityFixMixin",        "bow_infinity_fix");
+        KEYS.put("InfiniteMendingMixin",       "infinite_mending");
+        KEYS.put("LoyalVoidTridentsMixin",     "loyal_void_tridents");
+        KEYS.put("MultishotPiercingMixin",     "multishot_piercing");
+        KEYS.put("NoSoulSpeedBacklashMixin",   "no_soul_speed_backlash");
+        KEYS.put("NoThornsBacklashMixin",      "no_thorns_backlash");
+        KEYS.put("SwordEfficientToolsMixin",   "sword_efficient_tools");
+        KEYS.put("TridentWeaponsMixin",        "trident_weapons");
+        KEYS.put("TridentWeaponsHelperMixin",  "trident_weapons");
 
-        KEYS.put("DamageEnchantMixin",        "capmod_enabled");
-        KEYS.put("GenericEnchantMixin",       "capmod_enabled");
-        KEYS.put("LuckEnchantMixin",          "capmod_enabled");
-        KEYS.put("ProtectionEnchantMixin",    "capmod_enabled");
-        KEYS.put("SpecialEnchantMixin",       "capmod_enabled");
+        KEYS.put("DamageEnchantMixin",         "capmod_enabled");
+        KEYS.put("GenericEnchantMixin",        "capmod_enabled");
+        KEYS.put("LuckEnchantMixin",           "capmod_enabled");
+        KEYS.put("ProtectionEnchantMixin",     "capmod_enabled");
+        KEYS.put("SpecialEnchantMixin",        "capmod_enabled");
 
     }
 

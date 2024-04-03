@@ -11,6 +11,8 @@
     "server.capmod.SpecialEnchantMixin",
     "server.enhanced.MoreMendingMixin",
     "server.enhanced.MoreMultishotMixin",
+    "server.registry.AxeWeaponsHelperMixin",
+    "server.registry.TridentWeaponsHelperMixin",
     "server.tweak.AxesNotToolsMixin",
     "server.tweak.AxeWeaponsMixin",
     "server.tweak.BetterMendingMixin",
