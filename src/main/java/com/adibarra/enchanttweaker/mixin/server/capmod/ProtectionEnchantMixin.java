@@ -19,7 +19,6 @@ public abstract class ProtectionEnchantMixin {
     @Shadow @Final
     public ProtectionEnchantment.Type protectionType;
 
-    @SuppressWarnings("UnnecessaryDefault")
     @ModifyReturnValue(
         method="getMaxLevel()I",
         at=@At("RETURN"))
@@ -31,7 +30,6 @@ public abstract class ProtectionEnchantMixin {
             case FALL -> ETMixinPlugin.getConfig().getOrDefault("feather_falling", orig);
             case EXPLOSION -> ETMixinPlugin.getConfig().getOrDefault("blast_protection", orig);
             case PROJECTILE -> ETMixinPlugin.getConfig().getOrDefault("projectile_protection", orig);
-            default -> orig;
         };
         if (lvlCap < 0) return orig;
         return ADMath.clamp(lvlCap, 0, 255);
